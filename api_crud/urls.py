@@ -8,6 +8,6 @@ urlpatterns = [
     # app routes
     path('api/v1/auth/', include('authentication.urls')),
     path('api/v1/movies/', include('movies.urls')),
-    # swagger
 ]
+# swagger urls
 urlpatterns += swagger_urlpatterns
