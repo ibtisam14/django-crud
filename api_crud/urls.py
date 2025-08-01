@@ -1,14 +1,13 @@
 
 from django.contrib import admin
-from .swagger import schema_view
 from django.urls import include, path
+from api_crud.swagger import swagger_urlpatterns
 
-# urls
-urlpatterns = [ 
-    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # 👈 Swagger at root
-    path('api/v1/movies/', include('movies.urls')),
-    path('api/v1/auth/', include('authentication.urls')),
+urlpatterns = [
     path('admin/', admin.site.urls),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    # app routes
+    path('api/v1/auth/', include('authentication.urls')),
+    path('api/v1/movies/', include('movies.urls')),
+    # swagger
 ]
+urlpatterns += swagger_urlpatterns
