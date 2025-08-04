@@ -15,4 +15,15 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
+    authentication_classes=[],  # Swagger itself doesn't enforce auth
 )
+
+# Add this below schema_view
+swagger_security_definition = {
+    'Bearer': {
+        'type': 'apiKey',
+        'name': 'Authorization',
+        'in': 'header',
+        'description': 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer <your JWT token>"'
+    }
+}

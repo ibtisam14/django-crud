@@ -16,4 +16,17 @@ class UserSerializer(serializers.ModelSerializer):  # create class to serializer
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'movies')
+        fields = ('id', 'username', 'movies') 
+
+        SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,  # disables login/logout buttons
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'JWT Authorization. Format: Bearer <your_token>',
+        }
+    }
+}
+
