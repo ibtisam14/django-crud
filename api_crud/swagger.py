@@ -25,7 +25,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="python swagger collection",
         default_version='v1',
-        contact=openapi.Contact(email="mh408800@gmail.com"),
+        contact=openapi.Contact(email="ibtisam@gmail.com"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
